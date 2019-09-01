@@ -14,6 +14,7 @@ function Toast(option){
     this.bottom = (option && option.bottom) ? option.top : this.option.bottom;
     this.textSize = (option && option.textSize) ? option.textSize : this.option.textSize;
     this.text = (option && option.text) ? option.text : this.option.text;
+    this.time = (option && option.time) ? option.time : this.option.time;
     this.init();
 };
 
@@ -26,6 +27,7 @@ Toast.prototype.option = {
     center : false,
     bottom : "20%",
     textSize : "16px",
+    time: 1500,
     text : ""
 };
 
@@ -53,7 +55,7 @@ Toast.prototype.show = function () {
     var windowH = document.body.clientHeight;
     var objW = toast.offsetWidth;
     var objH =  toast.offsetHeight;
-
+    var forTime = this.time/100;
     if(this.center){
         toast.setAttribute("style",toast.getAttribute("style")+";top: "+((windowH/2) - (objH/2)) +"px; left: "+((windowW/2) - (objW/2)) +"px;");
     }
@@ -62,13 +64,13 @@ Toast.prototype.show = function () {
     }
     var show = setInterval(function () {
 
-        opacity = opacity-0.02;
+        opacity = opacity-0.01;
         if(opacity<=0){
             opacity = 0;
             clearInterval(show);
         }
         toast.setAttribute("style",toast.getAttribute("style")+";opacity:"+opacity);
-    },45,1500)
+    },forTime)
 
 };
 
