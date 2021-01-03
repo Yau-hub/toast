@@ -1,4 +1,4 @@
-# toast
+﻿# toast
 js封装一个简单的toast兼容ie9+
 
 使用方法：
@@ -34,6 +34,6 @@ js封装一个简单的toast兼容ie9+
   
   toast.show();
 
-  --结束
+  ---结束
   
 
